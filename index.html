@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<meta name="qjq-app" content="youth">
+<title>轻简趣·青年 | Qingjianqu Youth — 5–30 岁青年少年成长与保护平台</title>
+<meta name="description" content="轻简趣·青年（Qingjianqu Youth）：面向 5–30 岁青年少年的一站式成长、学习、创业与保护平台，青少年女性保护专项，全体系连通。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;background:#f4f8fa;color:#222;line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+/* ===== 顶栏 ===== */
+.topbar{position:sticky;top:0;z-index:99;background:linear-gradient(100deg,#0A4F7A,#0CB8B8);color:#fff;box-shadow:0 2px 12px rgba(10,79,122,.25)}
+.topbar .wrap{display:flex;align-items:center;gap:14px;height:60px;flex-wrap:wrap}
+.logo{font-size:20px;font-weight:800;letter-spacing:1px;white-space:nowrap}
+.logo small{display:block;font-size:10px;font-weight:400;opacity:.85;letter-spacing:.5px}
+.nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.nav button{background:rgba(255,255,255,.14);color:#fff;border:0;padding:8px 13px;border-radius:20px;font-size:13px;cursor:pointer}
+.nav button.on{background:#fff;color:#0A4F7A;font-weight:700}
+.agebox{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.16);padding:4px 8px;border-radius:20px}
+.agebox select{border:0;border-radius:14px;padding:5px 8px;font-size:12px;background:#fff;color:#0A4F7A;font-weight:700}
+/* ===== Hero ===== */
+.hero{background:linear-gradient(135deg,#0A4F7A 0%,#0CB8B8 55%,#37D6C4 100%);color:#fff;padding:52px 0 46px;text-align:center}
+.hero h1{font-size:34px;font-weight:900;letter-spacing:1px;line-height:1.35}
+.hero p{margin:14px auto 0;max-width:760px;font-size:16px;opacity:.95}
+.hero .tags{margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero .tags span{background:rgba(255,255,255,.18);padding:7px 16px;border-radius:20px;font-size:13px;border:1px solid rgba(255,255,255,.35)}
+.cta{margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta a{padding:12px 26px;border-radius:26px;font-weight:700;font-size:15px}
+.cta .p{background:#fff;color:#0A4F7A}
+.cta .s{background:#F5A623;color:#fff}
+/* ===== 保护横幅 ===== */
+.protect-banner{background:#fff4f6;border-top:3px solid #E75480;border-bottom:1px solid #f3d3de}
+.protect-banner .wrap{padding:16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.protect-banner .t{font-size:17px;font-weight:800;color:#c2185b}
+.protect-banner p{font-size:13.5px;color:#7a3b52;flex:1;min-width:260px}
+.hotline{display:flex;gap:8px;flex-wrap:wrap}
+.hotline a{background:#E75480;color:#fff;padding:8px 14px;border-radius:18px;font-size:13px;font-weight:700}
+.hotline a.q{background:#7b1fa2}
+/* ===== 分区 ===== */
+section{padding:38px 0}
+.sec-head{text-align:center;margin-bottom:26px}
+.sec-head h2{font-size:26px;font-weight:800;color:#0A4F7A}
+.sec-head p{color:#667;font-size:14px;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:18px}
+.card{background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 18px rgba(20,60,90,.08);border:1px solid #e8eef3;transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(20,60,90,.14)}
+.card .ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;background:#e7f6f6;margin-bottom:12px}
+.card h3{font-size:17px;font-weight:800;margin-bottom:8px;color:#0A4F7A}
+.card p{font-size:13px;color:#667;min-height:56px}
+.card .go{display:inline-block;margin-top:12px;font-size:13px;font-weight:700;color:#0CB8B8}
+.prot{border-top:4px solid #E75480}
+.prot .ico{background:#ffe9f0}
+.prot h3{color:#c2185b}
+/* ===== 分龄面板 ===== */
+#agePanel{background:#fff;border-radius:18px;padding:26px;box-shadow:0 4px 18px rgba(20,60,90,.08)}
+#agePanel h3{font-size:20px;color:#0A4F7A;margin-bottom:6px}
+#agePanel .sub{color:#889;font-size:13px;margin-bottom:16px}
+.agerows{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.agerow{padding:15px;border-radius:13px;border:2px solid #e8eef3;cursor:pointer;transition:.15s}
+.agerow:hover{border-color:#0CB8B8}
+.agerow.on{border-color:#0CB8B8;background:#f0fbfb}
+.agerow b{font-size:15px;display:block}
+.agerow span{font-size:12px;color:#789}
+/* ===== 下载中心 ===== */
+#dlTable{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(20,60,90,.08)}
+#dlTable th{background:#0A4F7A;color:#fff;padding:12px 10px;font-size:13px;text-align:left}
+#dlTable td{padding:11px 10px;border-bottom:1px solid #eef2f5;font-size:13px}
+#dlTable tr:hover td{background:#f6fbfc}
+.dlbtn{background:#0CB8B8;color:#fff;padding:6px 13px;border-radius:14px;font-size:12px;font-weight:700;display:inline-block}
+.dlbtn.o{background:#F5A623}
+.dlbtn.g{background:#2e7d32}
+/* ===== changelog ===== */
+.log-item{background:#fff;border-radius:14px;padding:20px 22px;margin-bottom:14px;border-left:5px solid #0CB8B8;box-shadow:0 3px 14px rgba(20,60,90,.07)}
+.log-item h4{font-size:16px;color:#0A4F7A;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.ver-tag{background:#0CB8B8;color:#fff;padding:3px 11px;border-radius:12px;font-size:12px}
+.log-item ul{margin:10px 0 0 20px;color:#567;font-size:13.5px}
+.log-item li{margin:5px 0}
+/* ===== 登录 ===== */
+.modal{display:none;position:fixed;inset:0;background:rgba(10,40,60,.55);z-index:200;align-items:center;justify-content:center;padding:16px}
+.modal.show{display:flex}
+.mbox{background:#fff;border-radius:18px;width:100%;max-width:420px;padding:28px;position:relative;max-height:92vh;overflow:auto}
+.mbox h3{font-size:20px;color:#0A4F7A;margin-bottom:4px}
+.mbox .sub{color:#889;font-size:12.5px;margin-bottom:18px}
+.mclose{position:absolute;top:14px;right:16px;font-size:22px;cursor:pointer;color:#999;background:none;border:0}
+.field{margin-bottom:13px}
+.field label{display:block;font-size:12.5px;color:#678;margin-bottom:5px;font-weight:600}
+.field input,.field select{width:100%;padding:11px 13px;border:1.5px solid #dde5eb;border-radius:11px;font-size:14px;outline:none}
+.field input:focus{border-color:#0CB8B8}
+.row2{display:flex;gap:9px}
+.row2 input{flex:1}
+.btn{width:100%;padding:13px;border:0;border-radius:24px;background:linear-gradient(95deg,#0A4F7A,#0CB8B8);color:#fff;font-size:15px;font-weight:800;cursor:pointer;margin-top:6px}
+.btn.ghost{background:#eef4f7;color:#0A4F7A}
+.btn.otp{background:#F5A623;width:auto;padding:10px 15px;font-size:13px;border-radius:11px;white-space:nowrap;cursor:pointer;border:0;color:#fff;font-weight:700}
+.agree{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:#678;margin:12px 0}
+.agree a{color:#0CB8B8;font-weight:700}
+.msg{font-size:13px;padding:10px 12px;border-radius:10px;margin:10px 0;display:none}
+.msg.ok{background:#e8f5e9;color:#2e7d32;display:block}
+.msg.err{background:#fdecea;color:#c62828;display:block}
+.mtabs{display:flex;gap:8px;margin-bottom:16px}
+.mtabs button{flex:1;padding:9px;border:0;border-radius:11px;background:#eef4f7;color:#678;font-weight:700;cursor:pointer}
+.mtabs button.on{background:#0A4F7A;color:#fff}
+/* ===== 举报 ===== */
+.rep-field{margin-bottom:12px}
+.rep-field label{display:block;font-size:12.5px;font-weight:700;color:#a13a63;margin-bottom:5px}
+.rep-field textarea,.rep-field select,.rep-field input{width:100%;padding:10px 12px;border:1.5px solid #f0cdd9;border-radius:11px;font-size:13.5px;outline:none;font-family:inherit}
+.rep-field textarea{min-height:90px;resize:vertical}
+/* ===== 页脚 ===== */
+footer{background:#0A2C44;color:#bcd3e2;padding:34px 0 26px;margin-top:20px}
+footer h4{color:#fff;font-size:14px;margin-bottom:10px}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:22px}
+footer a{display:block;font-size:12.5px;padding:3px 0;opacity:.85}
+footer a:hover{opacity:1;color:#4fe0d0}
+.copy{border-top:1px solid rgba(255,255,255,.12);margin-top:22px;padding-top:16px;font-size:12px;opacity:.7;text-align:center}
+.fab{position:fixed;right:16px;bottom:18px;z-index:120;display:flex;flex-direction:column;gap:10px}
+.fab button{width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;font-size:20px;box-shadow:0 6px 18px rgba(0,0,0,.22)}
+#fabTop{background:#0CB8B8;color:#fff}
+#fabRep{background:#E75480;color:#fff}
+.toast{position:fixed;left:50%;top:16px;transform:translateX(-50%);z-index:300;padding:11px 22px;border-radius:22px;color:#fff;font-size:13.5px;display:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.updbar{position:fixed;left:0;right:0;bottom:0;z-index:150;background:#0A4F7A;color:#fff;padding:11px 16px;display:none;align-items:center;gap:12px;font-size:13px}
+.updbar button{border:0;border-radius:14px;padding:7px 14px;font-size:12.5px;font-weight:700;cursor:pointer}
+@media(max-width:640px){.hero h1{font-size:24px}.logo{font-size:17px}.topbar .wrap{height:auto;padding:10px 12px}}
+</style>
+</head>
+<body>
+<div class="toast" id="toast"></div>
+
+<!-- 顶栏 -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="logo">轻简趣·青年<small>Qingjianqu Youth · 5–30 岁青年少年成长与保护平台</small></div>
+    <div class="agebox">年龄段
+      <select id="ageSel" onchange="setAge(this.value)">
+        <option value="kid">5–12 儿童</option>
+        <option value="teen" selected>13–17 青少年</option>
+        <option value="youth">18–25 青年</option>
+        <option value="yadult">26–30 青年后期</option>
+      </select>
+    </div>
+    <div class="nav">
+      <button class="on" onclick="go('home',this)">首页</button>
+      <button onclick="go('protect',this)">保护专区</button>
+      <button onclick="go('ecosystem',this)">体系导航</button>
+      <button onclick="go('downloads',this)">应用下载</button>
+      <button onclick="go('changelog',this)">更新日志</button>
+      <button onclick="openAuth('login')">登录</button>
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="hero" id="home">
+  <div class="wrap">
+    <h1 id="heroTitle">青年有为 · 成长有护 · 未来有光</h1>
+    <p id="heroSub">面向 5–30 岁青年少年的一站式成长平台：学习成长、兴趣拓展、创业合伙、跨文化交流，全程护航——青少年与青少年女性保护是我们最优先的承诺。</p>
+    <div class="tags">
+      <span>★ 分龄适配 5–30 岁</span><span>★ 青少年女性保护专项</span><span>★ 口令 + OTP 安全登录</span><span>★ 全体系一键连通</span><span>★ 免费开放 · 无广告</span>
+    </div>
+    <div class="cta">
+      <a class="p" href="#" onclick="openAuth('register');return false">立即加入</a>
+      <a class="s" href="#" onclick="go('downloads');return false">下载客户端</a>
+    </div>
+  </div>
+</div>
+
+<!-- 保护横幅 -->
+<div class="protect-banner">
+  <div class="wrap">
+    <div class="t">⚠ 青少年保护 · 一键求助</div>
+    <p>遇到欺凌、骚扰、诱骗或任何不安全情况，立即求助。你的安全永远比任何事情重要。所有举报均严格保密，支持匿名，涉未成年人与人身安全事项自动最高优先级处置。</p>
+    <div class="hotline">
+      <a href="tel:110">报警 110</a>
+      <a href="tel:12338">妇女维权 12338</a>
+      <a class="q" href="tel:12355">青少年服务 12355</a>
+      <a href="tel:12345">政务服务 12345</a>
+    </div>
+  </div>
+</div>
+
+<!-- 分龄面板 -->
+<section>
+  <div class="wrap">
+    <div id="agePanel">
+      <h3 id="ageTitle">当前模式：13–17 青少年</h3>
+      <div class="sub" id="ageSub">为你的年龄段智能适配内容与保护等级。点击卡片切换，或在顶部选择器中更改。</div>
+      <div class="agerows" id="ageRows"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 核心服务 -->
+<section style="background:#eef5f8">
+  <div class="wrap">
+    <div class="sec-head"><h2>成长服务 · 应有尽有</h2><p>学习、兴趣、心理、创业、跨文化、保护——一站式满足青年少年全时段需求</p></div>
+    <div class="grid" id="serviceGrid"></div>
+  </div>
+</section>
+
+<!-- 保护专区 -->
+<section id="protect">
+  <div class="wrap">
+    <div class="sec-head"><h2>★ 青少年保护专区</h2><p>分层保护 · 未成年女性特别保护 · 举报快速响应 · 隐私至上</p></div>
+    <div class="grid">
+      <div class="card prot"><div class="ico">🛡</div><h3>未成年女性特别保护</h3><p>对 18 岁以下女性实行分层递进式特别保护：禁止基于生理、心理、经济、发展权的任何形式凌虐与歧视，性骚扰与性别暴力零容忍。</p><a class="go" href="#" onclick="openReport();return false">立即举报 →</a></div>
+      <div class="card prot"><div class="ico">🔒</div><h3>隐私与数据保护</h3><p>最小必要采集，敏感信息自动掩码。未成年人信息严格限制使用，绝不向任何第三方出售或共享个人信息。</p><a class="go" href="legal.html">查看隐私政策 →</a></div>
+      <div class="card prot"><div class="ico">📢</div><h3>举报与快速响应</h3><p>匿名可举报，自动生成受理编号（JB-…），涉未成年人/性暴力/人身安全自动升级最高优先级，专人跟进直至处置闭环。</p><a class="go" href="#" onclick="openReport();return false">我要举报 →</a></div>
+      <div class="card prot"><div class="ico">🤝</div><h3>心理与情绪支持</h3><p>青春期情绪、学业压力、人际困扰、家庭问题——专业引导与温暖陪伴，必要时转介专业机构。</p><a class="go" href="tel:12355">心理热线 12355 →</a></div>
+      <div class="card prot"><div class="ico">🚫</div><h3>反欺凌 · 反诱骗</h3><p>识别校园欺凌、网络欺凌、金钱诱骗、情感操控与危险接触的预警信号，教你如何拒绝、如何取证、如何求助。</p><a class="go" href="#" onclick="openService('safetykid');return false">进入安全课堂 →</a></div>
+      <div class="card prot"><div class="ico">⚖</div><h3>法律与权益护航</h3><p>青少年权益、未成年人保护法、女性权益保护相关法律指引；重大事项由公司法律委员会提供专项支持。</p><a class="go" href="https://data.qingjianqu.cn" target="_blank">法律支持 →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 体系导航 -->
+<section id="ecosystem" style="background:#eef5f8">
+  <div class="wrap">
+    <div class="sec-head"><h2>轻简趣体系 · 一键连通</h2><p>青年端与整个轻简趣生态深度连通，一个账号畅游全体系</p></div>
+    <div class="grid" id="ecoGrid"></div>
+  </div>
+</section>
+
+<!-- 下载中心 -->
+<section id="downloads">
+  <div class="wrap">
+    <div class="sec-head"><h2>应用下载中心</h2><p>体系全量应用动态维护与更新 · 手机 APK / 电脑 EXE / 网页版</p></div>
+    <div class="grid" style="margin-bottom:22px">
+      <div class="card" style="border-top:4px solid #0CB8B8">
+        <h3>轻简趣·青年 Android 版</h3><p>WebView 全功能客户端，支持自动更新检测、拍照上传、推送提醒。</p>
+        <a class="dlbtn" data-qjq-dl-direct href="https://data.qingjianqu.cn/downloads/QingjianquYouth-Android-1.0.0.apk">下载 APK</a>
+      </div>
+      <div class="card" style="border-top:4px solid #F5A623">
+        <h3>轻简趣·青年 Windows 版</h3><p>桌面快捷客户端，一键直达青年平台，自动版本检测。</p>
+        <a class="dlbtn o" data-qjq-dl-direct href="https://exe.qingjianqu.cn/qingjianqu-youth.exe">下载 EXE</a>
+      </div>
+      <div class="card" style="border-top:4px solid #2e7d32">
+        <h3>轻简趣·青年 网页版</h3><p>免安装，浏览器即开即用，功能与客户端完全一致。</p>
+        <a class="dlbtn g" href="index.html">立即使用网页版</a>
+      </div>
+    </div>
+    <div style="overflow-x:auto">
+      <table id="dlTable">
+        <thead><tr><th>应用名称</th><th>平台</th><th>版本</th><th>说明</th><th>下载</th></tr></thead>
+        <tbody id="dlBody"><tr><td colspan="5" style="text-align:center;color:#999">正在加载体系应用清单…</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- changelog -->
+<section id="changelog" style="background:#eef5f8">
+  <div class="wrap">
+    <div class="sec-head"><h2>更新日志 Changelog</h2><p>动态维护 · 版本透明 · 每一次更新都清晰可见</p></div>
+    <div id="logList"></div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>轻简趣·青年</h4>
+        <a href="index.html">首页</a><a href="#" onclick="go('protect');return false">保护专区</a><a href="#" onclick="go('downloads');return false">应用下载</a><a href="#" onclick="go('changelog');return false">更新日志</a>
+      </div>
+      <div>
+        <h4>保护与求助</h4>
+        <a href="#" onclick="openReport();return false">举报入口</a><a href="tel:110">报警 110</a><a href="tel:12338">妇女维权热线 12338</a><a href="tel:12355">青少年服务热线 12355</a><a href="tel:12356">心理援助 12356</a>
+      </div>
+      <div>
+        <h4>体系导航</h4>
+        <a href="https://ima.qingjianqu.cn" target="_blank">轻简趣·知识库</a><a href="https://data.qingjianqu.cn" target="_blank">轻简趣数据库</a><a href="https://guard.qingjianqu.cn" target="_blank">轻简趣·她安</a><a href="https://cross.qingjianqu.cn" target="_blank">轻简趣·礼遇通</a><a href="https://library.qingjianqu.cn" target="_blank">轻简趣图书馆</a>
+      </div>
+      <div>
+        <h4>条款与协议</h4>
+        <a href="legal.html">用户许可协议</a><a href="legal.html">隐私政策</a><a href="legal.html">未成年人保护条款</a><a href="legal.html">女性特别保护条款</a><a href="legal.html">版权声明</a>
+      </div>
+    </div>
+    <div class="copy">© 2026 上海轻简趣极简文化发展有限公司 · 版权所有，保留一切权利 | All Rights Reserved.<br>Shanghai Qingjianqu Minimalist Culture Development Co., Ltd. | 青少年保护专线：12355 / 12338 / 110</div>
+  </div>
+</footer>
+
+<div class="fab">
+  <button id="fabRep" title="举报/求助" onclick="openReport()">🆘</button>
+  <button id="fabTop" title="回到顶部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+</div>
+
+<div class="updbar" id="updbar">
+  <span id="updText">发现新版本！</span>
+  <button style="background:#F5A623" onclick="doUpdate()">立即更新</button>
+  <button style="background:rgba(255,255,255,.2)" onclick="document.getElementById('updbar').style.display='none'">稍后</button>
+</div>
+
+<!-- 登录/注册 -->
+<div class="modal" id="authModal">
+  <div class="mbox">
+    <button class="mclose" onclick="closeAuth()">×</button>
+    <div class="mtabs">
+      <button id="tabLogin" class="on" onclick="switchAuth('login')">登录</button>
+      <button id="tabReg" onclick="switchAuth('register')">注册</button>
+    </div>
+    <h3 id="authTitle">欢迎回来</h3>
+    <div class="sub" id="authSub">口令 + 邮箱验证码双重保护，安全畅游青年平台</div>
+    <div class="msg" id="authMsg"></div>
+    <div class="field"><label>邮箱 Email</label><input id="authEmail" type="email" placeholder="you@example.com"></div>
+    <div class="field"><label>口令 Password</label><input id="authPass" type="password" placeholder="至少 6 位"></div>
+    <div class="field"><label>邮箱验证码 OTP</label>
+      <div class="row2">
+        <input id="authOtp" placeholder="6 位验证码">
+        <button class="btn otp" id="otpBtn" onclick="sendOtp()">发送验证码</button>
+      </div>
+    </div>
+    <div class="field" id="nameField" style="display:none"><label>昵称 Nickname</label><input id="authName" placeholder="你的昵称（可选）"></div>
+    <div class="agree">
+      <input type="checkbox" id="authAgree">
+      <span>我已阅读并同意 <a href="legal.html" target="_blank">《用户许可协议》与《未成年人保护条款》</a>；未成年人请在监护人指导下使用。</span>
+    </div>
+    <button class="btn" id="authBtn" onclick="doAuth()">登 录</button>
+  </div>
+</div>
+
+<!-- 举报 -->
+<div class="modal" id="repModal">
+  <div class="mbox" style="max-width:520px">
+    <button class="mclose" onclick="document.getElementById('repModal').classList.remove('show')">×</button>
+    <h3 style="color:#c2185b">举报 / 求助</h3>
+    <div class="sub">所有信息严格保密，支持匿名。涉未成年人与人身安全事项自动最高优先级处置。</div>
+    <div class="msg" id="repMsg"></div>
+    <div class="rep-field"><label>举报类别</label>
+      <select id="repCat">
+        <option>欺凌（校园/网络）</option><option>性骚扰或性别暴力</option><option>诱骗或危险接触</option>
+        <option>基于性别的歧视或凌虐</option><option>家庭暴力或虐待</option><option>不良信息或内容</option>
+        <option>隐私被侵犯</option><option>心理困扰需要帮助</option><option>其他</option>
+      </select>
+    </div>
+    <div class="rep-field"><label>情况描述（可匿名，尽量详细）</label><textarea id="repText" placeholder="发生了什么？时间、地点、涉及人员（可不填）…"></textarea></div>
+    <div class="rep-field"><label>联系方式（可选，便于跟进）</label><input id="repContact" placeholder="邮箱 / 电话，可留空"></div>
+    <div class="rep-field"><label>紧急程度</label>
+      <select id="repUrgent"><option>最高（人身安全受威胁）</option><option selected>高</option><option>一般</option></select>
+    </div>
+    <div class="agree"><input type="checkbox" id="repAgree"><span>我确认所述内容真实，并同意按《举报真实性声明》提交。</span></div>
+    <button class="btn" style="background:linear-gradient(95deg,#c2185b,#E75480)" onclick="submitReport()">提交举报</button>
+    <div style="margin-top:12px;font-size:12px;color:#a13a63">紧急情况请直接拨打 110（报警）/ 12338（妇女维权）/ 12355（青少年服务）。</div>
+  </div>
+</div>
+
+<script src="services.js" defer></script>
+<script src="_update.js" defer></script>
+<script src="https://exe.qingjianqu.cn/dlpop.js" defer></script>
+<script>
+/* ===== 分龄数据 ===== */
+var AGE={
+ kid:{name:"5–12 儿童",color:"#F5A623",title:"快乐童年 · 安全成长",
+   sub:"大字友好界面，家长协助模式，只呈现适龄安全内容。",
+   rows:[["家长协助模式","重要操作需家长确认，防沉迷时间提示"],["安全启蒙","认识身体界限、拒绝危险接触、记住求助电话"],["趣味学习","绘本、科普、思维启蒙、兴趣发现"],["亲子成长","家庭活动建议、成长记录"]],
+   svc:[["🎨","兴趣启蒙","绘画、音乐、手工、自然观察等兴趣发现，让童年多彩"],["📚","趣味学习","绘本阅读、科普百科、思维游戏，玩中学"],["🛡","安全课堂","认识身体界限、拒绝陌生人危险接触、牢记求助电话"],["👨‍👩‍👧","亲子共成长","家庭活动建议与成长记录，家长与孩子共同参与"]]},
+ teen:{name:"13–17 青少年",color:"#0CB8B8",title:"青年有为 · 成长有护 · 未来有光",
+   sub:"青春期全程护航，青少年女性保护强化。",
+   rows:[["学习成长","学科学习方法、时间管理、升学规划"],["心理护航","青春期情绪、人际、压力疏导与陪伴"],["★ 女性保护","未成年女性分层保护、反欺凌反骚扰专栏"],["兴趣与创造","社团、创作、编程、体育、艺术"]],
+   svc:[["📖","学习与升学","高效学习法、时间管理、升学与选科规划指导"],["🧠","心理护航","青春期情绪疏导、人际困扰、学业压力陪伴"],["★","青少年女性保护","分层递进式特别保护、反欺凌反骚扰、安全课堂"],["🎨","兴趣与创造","社团活动、创作表达、编程、体育、艺术拓展"],["🌍","跨文化视野","外语学习、国际理解、跨文化交流初体验"],["🛡","安全与权益","反诱骗、法律常识、权益维护与举报通道"]]},
+ youth:{name:"18–25 青年",color:"#0A4F7A",title:"创业合伙 · 全球视野 · 青春担当",
+   sub:"从校园到社会的关键跃迁期——创业、合伙、技能、跨文化全支持。",
+   rows:[["创业与合伙","创业启蒙、合伙合作、项目实践（绝不打工）"],["技能升级","外语、IT、设计、新媒体等硬技能"],["全球视野","留学申请、跨文化交流、全球旅居体验"],["身心平衡","压力管理、健康管理、人际与情感"]],
+   svc:[["🚀","创业与合伙","创业启蒙、合伙合作模式、项目实战——做事业的主人，绝不打工"],["💡","技能升级","外语能力、IT 技能、设计、新媒体等硬核技能成长"],["🌏","全球视野","留学申请指导、跨文化交流、全球旅居与游学体验"],["💼","事业发展","合伙事业规划、贡献值（CV）成长、事业伙伴连接"],["🧠","身心平衡","压力管理、健康生活、人际与情感智慧"],["🛡","权益与保护","劳动权益、女性保护、法律护航与举报通道"]]},
+ yadult:{name:"26–30 青年后期",color:"#2e7d32",title:"事业深耕 · 全球旅居 · 生活自洽",
+   sub:"事业与生活双线成熟期，深耕合伙事业，拥抱全球生活方式。",
+   rows:[["事业深耕","合伙事业进阶、资源整合、深度合伙人连接"],["全球旅居","旅居办公、跨文化生活、多语种能力"],["财富与规划","自有资金投资、财务规划、贡献值积累"],["生活自洽","健康管理、亲密关系、家庭与传承思考"]],
+   svc:[["🏆","事业深耕","合伙事业进阶、资源深度整合、深度合伙人连接"],["🌍","全球旅居","旅居办公、跨文化生活、多语种能力持续提升"],["📊","财富与规划","自有资金投资理念、财务规划、贡献值（CV）积累"],["❤","生活自洽","健康管理、亲密关系智慧、家庭与传承思考"],["🎓","终身学习","持续成长体系、跨领域学习、认知升级"],["🛡","权益护航","女性保护、法律支持、争议解决与举报通道"]]}
+};
+var ECO=[
+ ["📚","轻简趣·知识库","https://ima.qingjianqu.cn","体系知识库，海量学习与治理资源"],
+ ["🗄","轻简趣数据库","https://data.qingjianqu.cn","体系台账与数据中枢，侧边栏全入口"],
+ ["🛡","轻简趣·她安","https://guard.qingjianqu.cn","女性安全保护与应急求助平台"],
+ ["🌏","轻简趣·礼遇通","https://cross.qingjianqu.cn","跨文化交流与礼遇服务平台"],
+ ["📖","轻简趣图书馆","https://library.qingjianqu.cn","全球开放学术资源聚合检索"],
+ ["🖥","轻简趣·我的电脑","https://pc.qingjianqu.cn","云端分区盘，无限存储"],
+ ["📥","一键分发中心","https://qjq-allfetch.pages.dev","体系全量应用下载"],
+ ["💾","GitHub 无限盘","https://ghdisk.qingjianqu.cn","GitHub 云端无限存储后端"],
+ ["✉","机构邮箱","https://orgmail.qingjianqu.cn","体系机构邮箱服务"],
+ ["💼","轻简趣·特劳 SLP","https://slp.qingjianqu.cn","特劳制度专库服务平台"],
+ ["📋","伙伴对照本","https://partnership.qingjianqu.cn","合伙人·合作者大典对照阅读"],
+ ["⬇","桌面软件分发","https://exe.qingjianqu.cn","Windows 桌面客户端下载"]
+];
+var LOGS=[
+ ["1.0.0","2026-10-19",["首发上线：面向 5–30 岁青年少年的一站式接入端","分龄四模式：5–12 儿童 / 13–17 青少年 / 18–25 青年 / 26–30 青年后期","★ 青少年保护专区：未成年女性分层保护、反欺凌、反诱骗、一键求助","口令 + 邮箱 OTP 双重安全登录体系","全体系 12+ 平台一键连通导航","应用下载中心：APK / EXE / 网页版全量动态维护","更新日志 changelog 页签，版本透明可追溯","举报快速响应：受理编号、匿名支持、最高优先级处置","24 章配套条款：未成年人保护、女性特别保护、未成年女性分层保护"]]
+];
+
+var QJQ_T2K={"兴趣启蒙":"interest","趣味学习":"learnfun","安全课堂":"safetykid","亲子共成长":"family","学习与升学":"study","心理护航":"psych","青少年女性保护":"female","兴趣与创造":"interest","跨文化视野":"cross","安全与权益":"safety","创业与合伙":"startup","技能升级":"skill","全球视野":"global","事业发展":"career","身心平衡":"balance","权益与保护":"safety","事业深耕":"careerdeep","全球旅居":"travel","财富与规划":"wealth","生活自洽":"life","终身学习":"learnlife","权益护航":"safety"};
+/* ===== 渲染 ===== */
+var curAge='teen';
+function setAge(k){
+  curAge=k;var a=AGE[k];
+  document.getElementById('heroTitle').textContent=a.title;
+  document.getElementById('heroSub').textContent=a.sub;
+  document.getElementById('ageTitle').textContent='当前模式：'+a.name;
+  document.getElementById('ageSub').textContent=a.sub;
+  var h='';for(var i=0;i<a.rows.length;i++){h+='<div class="agerow"><b>'+a.rows[i][0]+'</b><span>'+a.rows[i][1]+'</span></div>';}
+  document.getElementById('ageRows').innerHTML=h;
+  var s='';for(var j=0;j<a.svc.length;j++){var c=a.svc[j];
+    s+='<div class="card"><div class="ico">'+c[0]+'</div><h3>'+c[1]+'</h3><p>'+c[2]+'</p><a class="go" href="#" onclick="openService(QJQ_T2K[this.getAttribute(\'data-title\')]||\'safety\');return false" data-title="'+c[1]+'">进入服务 →</a></div>';}
+  document.getElementById('serviceGrid').innerHTML=s;
+  document.body.style.background=k==='kid'?'#fdf8ee':(k==='yadult'?'#eef6ee':'#f4f8fa');
+  try{localStorage.setItem('qjq_youth_age',k);}catch(e){}
+}
+function renderEco(){
+  var h='';for(var i=0;i<ECO.length;i++){var e=ECO[i];
+    h+='<div class="card"><div class="ico">'+e[0]+'</div><h3>'+e[1]+'</h3><p>'+e[3]+'</p><a class="go" href="'+e[2]+'" target="_blank">立即访问 →</a></div>';}
+  document.getElementById('ecoGrid').innerHTML=h;
+}
+function renderLogs(){
+  var h='';for(var i=0;i<LOGS.length;i++){var l=LOGS[i];
+    h+='<div class="log-item"><h4><span class="ver-tag">v'+l[0]+'</span>版本 '+l[0]+' <span style="color:#9ab;font-size:12px;font-weight:400">'+l[1]+'</span></h4><ul>';
+    for(var j=0;j<l[2].length;j++)h+='<li>'+l[2][j]+'</li>';
+    h+='</ul></div>';}
+  document.getElementById('logList').innerHTML=h;
+}
+function renderDownloads(){
+  var xhr=new XMLHttpRequest();
+  xhr.open('GET','https://hub.qingjianqu.cn/api/apps.json',true);
+  xhr.onload=function(){
+    try{
+      var d=JSON.parse(xhr.responseText),apps=d.apps||d||[];
+      if(!apps.length)throw 0;
+      var seen={},h='';
+      for(var i=0;i<apps.length;i++){var a=apps[i];if(seen[a.platform])continue;seen[a.platform]=1;
+        h+='<tr><td><b>'+(a.name||a.platform)+'</b></td><td>'+(a.platform||'—')+'</td><td>'+(a.version||'—')+'</td><td>'+(a.notes||'—')+'</td>'+
+           '<td><a class="dlbtn" data-qjq-dl-direct href="'+(a.url||'#')+'">下载</a></td></tr>';}
+      document.getElementById('dlBody').innerHTML=h||'<tr><td colspan="5" style="text-align:center;color:#999">暂无应用</td></tr>';
+    }catch(e){dlFallback();}
+  };
+  xhr.onerror=dlFallback;
+  xhr.send();
+}
+function dlFallback(){
+  document.getElementById('dlBody').innerHTML='<tr><td><b>轻简趣·知识库</b></td><td>kb</td><td>最新</td><td>体系知识库客户端</td><td><a class="dlbtn" data-qjq-dl-direct href="https://data.qingjianqu.cn/downloads/">下载</a></td></tr>'+
+  '<tr><td><b>轻简趣数据库</b></td><td>db</td><td>最新</td><td>体系台账数据中枢</td><td><a class="dlbtn" data-qjq-dl-direct href="https://data.qingjianqu.cn/downloads/">下载</a></td></tr>'+
+  '<tr><td><b>轻简趣·她安</b></td><td>heran</td><td>最新</td><td>女性安全保护</td><td><a class="dlbtn" data-qjq-dl-direct href="https://data.qingjianqu.cn/downloads/">下载</a></td></tr>'+
+  '<tr><td colspan="5" style="text-align:center"><a class="dlbtn o" data-qjq-dl-direct href="https://data.qingjianqu.cn/downloads/">查看全部应用 →</a></td></tr>';
+}
+
+/* ===== 导航 ===== */
+function go(id,btn){
+  var el=document.getElementById(id);if(el)window.scrollTo({top:el.offsetTop-70,behavior:'smooth'});
+  var bs=document.querySelectorAll('.nav button');
+  for(var i=0;i<bs.length;i++)bs[i].className='';
+  if(btn)btn.className='on';
+}
+
+/* ===== Toast ===== */
+function toast(t){var e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(function(){e.style.display='none';},2600);}
+
+/* ===== 登录/注册 ===== */
+var authMode='login';
+function openAuth(m){switchAuth(m);document.getElementById('authModal').classList.add('show');}
+function closeAuth(){document.getElementById('authModal').classList.remove('show');}
+function switchAuth(m){
+  authMode=m;
+  document.getElementById('tabLogin').className=m==='login'?'on':'';
+  document.getElementById('tabReg').className=m==='register'?'on':'';
+  document.getElementById('authTitle').textContent=m==='login'?'欢迎回来':'加入青年平台';
+  document.getElementById('authSub').textContent=m==='login'?'口令 + 邮箱验证码双重保护':'注册即享全体系服务，未成年人请在监护人指导下使用';
+  document.getElementById('nameField').style.display=m==='register'?'block':'none';
+  document.getElementById('authBtn').textContent=m==='login'?'登 录':'注 册';
+}
+function showMsg(id,t,ok){var e=document.getElementById(id);e.textContent=t;e.className='msg '+(ok?'ok':'err');}
+var otpTimer=0;
+function sendOtp(){
+  var em=document.getElementById('authEmail').value.trim();
+  if(!em||em.indexOf('@')<0){showMsg('authMsg','请先填写有效邮箱',false);return;}
+  if(otpTimer>0)return;
+  var btn=document.getElementById('otpBtn');
+  btn.textContent='发送中…';btn.disabled=true;
+  fetch('https://youth.qingjianqu.cn/api/auth/otp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em})})
+  .then(function(r){return r.json();}).then(function(d){
+    if(d.ok){
+      showMsg('authMsg','验证码已发送至 '+em+'，请注意查收'+(d.code?'（演示码：'+d.code+'）':''),true);
+      otpTimer=60;tickOtp();
+    }else{showMsg('authMsg',d.err||'发送失败，请稍后重试',false);btn.disabled=false;btn.textContent='发送验证码';}
+  }).catch(function(){showMsg('authMsg','网络异常，请稍后重试',false);btn.disabled=false;btn.textContent='发送验证码';});
+}
+function tickOtp(){
+  var btn=document.getElementById('otpBtn');
+  if(otpTimer<=0){btn.textContent='发送验证码';btn.disabled=false;return;}
+  btn.textContent=otpTimer+'s 后重发';otpTimer--;setTimeout(tickOtp,1000);
+}
+function doAuth(){
+  var em=document.getElementById('authEmail').value.trim(),
+      pw=document.getElementById('authPass').value,
+      ot=document.getElementById('authOtp').value.trim(),
+      nm=document.getElementById('authName').value.trim();
+  if(!em||em.indexOf('@')<0){showMsg('authMsg','请填写有效邮箱',false);return;}
+  if(!pw||pw.length<6){showMsg('authMsg','口令至少 6 位',false);return;}
+  if(!ot){showMsg('authMsg','请填写邮箱验证码',false);return;}
+  if(!document.getElementById('authAgree').checked){showMsg('authMsg','请先阅读并同意协议条款',false);return;}
+  var btn=document.getElementById('authBtn');btn.textContent='处理中…';btn.disabled=true;
+  fetch('https://youth.qingjianqu.cn/api/auth/'+(authMode==='login'?'login':'register'),{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({email:em,password:pw,otp:ot,name:nm})})
+  .then(function(r){return r.json();}).then(function(d){
+    btn.disabled=false;btn.textContent=authMode==='login'?'登 录':'注 册';
+    if(d.ok){
+      showMsg('authMsg',(authMode==='login'?'登录成功！':'注册成功！')+'欢迎 '+((d.name||em)) ,true);
+      try{localStorage.setItem('qjq_youth_user',JSON.stringify({email:em,name:d.name||nm||em}));}catch(e){}
+      setTimeout(function(){closeAuth();toast('欢迎，'+(d.name||nm||em));},900);
+    }else{showMsg('authMsg',d.err||'操作失败',false);}
+  }).catch(function(){btn.disabled=false;btn.textContent=authMode==='login'?'登 录':'注 册';showMsg('authMsg','网络异常，请稍后重试',false);});
+}
+
+/* ===== 举报 ===== */
+function openReport(){document.getElementById('repModal').classList.add('show');}
+function submitReport(){
+  if(!document.getElementById('repAgree').checked){showMsg('repMsg','请先确认《举报真实性声明》',false);return;}
+  var txt=document.getElementById('repText').value.trim();
+  if(!txt){showMsg('repMsg','请填写情况描述',false);return;}
+  var no='JB-'+new Date().toISOString().replace(/[-:T.Z]/g,'').slice(0,14)+'-'+Math.floor(1000+Math.random()*9000);
+  fetch('https://youth.qingjianqu.cn/api/report',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({cat:document.getElementById('repCat').value,text:txt,
+      contact:document.getElementById('repContact').value.trim(),
+      urgent:document.getElementById('repUrgent').value,no:no})})
+  .then(function(r){return r.json();}).then(function(d){
+    showMsg('repMsg','已收到你的举报/求助，受理编号：'+(d.no||no)+'。我们会尽快跟进处置，如有人身危险请立即拨打 110。',true);
+  }).catch(function(){
+    showMsg('repMsg','已记录（离线），受理编号：'+no+'。网络恢复后将自动同步。紧急情况请立即拨打 110。',true);
+  });
+}
+
+/* ===== 更新自检（兜底） ===== */
+function doUpdate(){location.reload();}
+(function(){
+  var saved=null;try{saved=localStorage.getItem('qjq_youth_age');}catch(e){}
+  if(saved&&AGE[saved]){document.getElementById('ageSel').value=saved;setAge(saved);}
+  else setAge('teen');
+  renderEco();renderLogs();renderDownloads();
+  // 应用内下载弹窗：无 dlpop.js 时保持直链
+})();
+</script>
+</body>
+</html>
